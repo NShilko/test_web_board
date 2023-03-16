@@ -159,8 +159,8 @@ CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_HOST_USER = 'nikita@psymphony.ru'
-EMAIL_HOST_PASSWORD = 'UUTwkpzPXQq5'
+EMAIL_HOST_USER = 'user'
+EMAIL_HOST_PASSWORD = 'password'
 
 
 EMAIL_HOST = 'amsterdam.smtp.bz'
@@ -168,8 +168,8 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-CELERY_BROKER_URL = 'redis://:SoldatGoBlin4202@77.37.152.243:6379/0'
-CELERY_RESULT_BACKEND = 'redis://:SoldatGoBlin4202@77.37.152.243:6379/0'
+CELERY_BROKER_URL = 'redis://:password4202@host:6379/0'
+CELERY_RESULT_BACKEND = 'redis://:password@host:6379/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
