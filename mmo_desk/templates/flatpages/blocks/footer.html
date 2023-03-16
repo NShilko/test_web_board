@@ -1,0 +1,15 @@
+<footer class="bg-light text-center text-lg-start">
+  <div class="text-center text-white p-3" style="background-color: #0097A7; margin-top: 7em">
+    © 2023 Copyright:
+    <a class="text-white" href="/">Тестовый проект</a>
+    (created by NShilko)
+    <hr>
+    <div>
+      {% if is_user.is_authenticated %}
+        <a class="link-light" href="/sign/logout"> >> Выйти из профиля ({{user.username}}) <<</a>
+      {% else %}
+        <a class="link-light" href="/sign/login"> >> Авторизация <<</a>
+      {% endif %}
+    </div>
+  </div>
+</footer>

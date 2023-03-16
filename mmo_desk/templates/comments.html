@@ -1,0 +1,41 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filter %}
+{% load custom_tags %}
+
+{% block title %}
+    Отклини на мои статьи
+{% endblock title %}
+
+{% block content %}
+    <h3>Отклики на мои статьи ({{my_name}})</h3>
+    <hr>
+
+ {% if comments %}
+    {% for comment in comments %}
+        <div class="card w-50 text-center mx-auto">
+            <div class="card-body">
+                <p class="card-text">{{ comment.main_text|linebreaks}}</p>
+            </div>
+            <div class="card-footer">
+                <p class="card-text">Автор: {{ comment.author__username}}</p>
+                {% if comment.kind == 'accept' %}
+                    <hr>
+                    <p class="badge badge-success">Отклик принят!</p>
+                {% elif comment.kind == 'cancel' %}
+                    <hr>
+                    <p class="badge badge-danger">Отклик отклонен!</p>
+                {% else %}
+                    {% if user.username != comment.author__username %}
+                        <hr>
+                        <a class="badge badge-success" href="{% url 'comment_change_status_mypost' comment.id 1 %}">Принять</a> / <a class="badge badge-danger" href="{% url 'comment_change_status_mypost' comment.id 0 %}">Удалить</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% else %}
+    <br>
+    <h5> На ваши статьи еще не оставили отклики </h5>
+{% endif %}
+{% endblock content %}
